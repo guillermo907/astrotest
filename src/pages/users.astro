@@ -1,9 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Users from '../components/Users.astro';
+import AnimatedPortal from '../components/AnimatedPortal.astro';
 ---
-<main>
-    <Users />
-</main>
 
-
+<Layout>
+  <AnimatedPortal
+    starsColor="orange"
+    starsColorTwo="orange"
+    starsColorThree="orange"
+  >
+    <main class="about-section">
+      <Users />
+    </main>
+  </AnimatedPortal>
+</Layout>
