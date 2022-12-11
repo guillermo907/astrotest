@@ -1,0 +1,54 @@
+---
+export interface Props {
+  title?: string;
+  subtitle?: string;
+}
+const { title = 'insert title', subtitle = 'insert subtitle' } =
+  Astro.props as Props;
+---
+
+<div class="banner">
+  <div class="banner-content">
+    <h1>{title}</h1>
+    <p>{subtitle}</p>
+  </div>
+</div>
+
+<style>
+  .banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+  }
+  .banner-content {
+    text-align: center;
+  }
+  .banner-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    color: white;
+    border: 1px solid;
+    border-radius: 10px;
+  }
+  button {
+    margin-top: 1rem;
+    border-radius: 10px;
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+    transition: all 0.6s linear;
+  }
+  button:hover {
+    background-color: var(--secondary-color);
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px,
+      rgba(0, 0, 0, 0.1) 0px 2px 4px 0px,
+      rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  }
+</style>

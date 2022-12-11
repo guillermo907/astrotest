@@ -1,0 +1,28 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedPortal from '../components/AnimatedPortal.astro';
+---
+
+<Layout>
+  <AnimatedPortal
+    starsColor="white"
+    starsColorTwo="hotpink"
+    starsColorThree="indianred"
+  >
+    <main class="about-section">
+      <h1>About mothafucka!</h1>
+    </main>
+  </AnimatedPortal>
+</Layout>
+
+<style>
+  .about-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    width: 100%;
+    background-color: white;
+    color: black;
+  }
+</style>

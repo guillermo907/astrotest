@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Banner from '../components/Banner.astro';
+import Content from '../components/Content.astro';
+import AnimatedPortal from '../components/AnimatedPortal.astro';
+---
+
+<Layout title="Music tools">
+  <AnimatedPortal
+    starsColor="cyan"
+    starsColorTwo="blueviolet"
+    overflow="visible"
+    paused={false}
+  >
+    <Banner title="Dyna web" subtitle="Guadalajara Jal" />
+  </AnimatedPortal>
+  <Content
+    title="Content title"
+    imageUrl="https://images.unsplash.com/photo-1668869049990-73ee0fc81f29?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2532&q=80"
+  />
+</Layout>

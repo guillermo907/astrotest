@@ -1,0 +1,26 @@
+---
+export interface Props {
+    title?: string;
+    imageUrl?: string
+}
+
+const {title ="Pass title trough props", imageUrl} = Astro.props as Props;
+---
+<div class="content-section glass">
+    <img src={imageUrl} width="100%" height="40%">
+    <h2>{title}</h2>
+</div>
+<style>
+.content-section{
+    min-height: 90vh;
+    color: black;
+    border-radius: 10px;
+}
+h2{
+    padding: 1rem 1rem 0rem; /* top, rigth & left, bottom */
+}
+img{
+    object-fit: cover;
+    border-radius: inherit;
+}
+</style>
