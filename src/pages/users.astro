@@ -4,7 +4,7 @@ import Users from '../components/Users.astro';
 import AnimatedPortal from '../components/AnimatedPortal.astro';
 ---
 
-<Layout>
+<div class="users-section">
   <AnimatedPortal
     starsColor="orange"
     starsColorTwo="orange"
@@ -14,4 +14,14 @@ import AnimatedPortal from '../components/AnimatedPortal.astro';
       <Users />
     </main>
   </AnimatedPortal>
-</Layout>
+</div>
+
+<style>
+  .users-section {
+    width: 100%;
+  }
+  .about-section {
+    padding: 1rem;
+    width: 100%;
+  }
+</style>

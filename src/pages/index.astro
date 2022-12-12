@@ -7,13 +7,24 @@ import AnimatedPortal from '../components/AnimatedPortal.astro';
 
 <Layout title="Music tools">
   <AnimatedPortal
-    starsColor="white"
-    starsColorTwo="white"
-    starsColorThree="white"
+    starsColor="aquamarine"
+    starsColorTwo="aquamarine"
+    starsColorThree="aquamarine"
     overflow="visible"
     paused={false}
+    starsTimeOne="30s"
+    starsTimeTwo="68s"
+    starsColorThree="130s"
   >
-    <Banner title="Dyna web" subtitle="Guadalajara Jal" />
+    <AnimatedPortal
+      starsColor="white"
+      starsColorTwo="white"
+      starsColorThree="white"
+      overflow="visible"
+      paused={false}
+    >
+      <Banner title="Dyna web" subtitle="Guadalajara Jal" />
+    </AnimatedPortal>
   </AnimatedPortal>
   <Content
     title="Content title"

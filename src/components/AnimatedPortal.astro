@@ -5,13 +5,19 @@ export interface Props {
   starsColorThree?: string;
   overflow?: string;
   paused?: boolean;
+  starsTimeOne?: string;
+  starsTimeTwo?: string;
+  starsTimeThree?: string;
 }
 const {
   starsColor = 'white',
   starsColorTwo = 'red',
   starsColorThree = 'orange',
   overflow = 'hidden',
-  paused = false
+  paused = false,
+  starsTimeOne = '50s',
+  starsTimeTwo = '100s',
+  starsTimeThree = '150s'
 } = Astro.props as Props;
 ---
 
@@ -26,7 +32,17 @@ const {
   </div>
 </div>
 
-<style define:vars={{ starsColor, starsColorTwo, starsColorThree, overflow }}>
+<style
+  define:vars={{
+    starsColor,
+    starsColorTwo,
+    starsColorThree,
+    overflow,
+    starsTimeOne,
+    starsTimeTwo,
+    starsTimeThree
+  }}
+>
   #stars {
     width: 1px;
     height: 1px;
@@ -381,7 +397,7 @@ const {
       1915px 1585px var(--starsColor), 232px 1935px var(--starsColor),
       767px 706px var(--starsColor), 431px 334px var(--starsColor),
       897px 15px var(--starsColor), 705px 146px var(--starsColor);
-    animation: animStar 50s linear infinite;
+    animation: animStar var(--starsTimeOne) linear infinite;
   }
   #stars:after {
     content: ' ';
@@ -847,7 +863,7 @@ const {
       412px 592px var(--starsColorTwo), 852px 732px var(--starsColorTwo),
       1060px 444px var(--starsColorTwo), 323px 1676px var(--starsColorTwo),
       1593px 1616px var(--starsColorTwo);
-    animation: animStar 100s linear infinite;
+    animation: animStar var(--starsTimeTwo) linear infinite;
   }
   #stars2:after {
     content: ' ';
@@ -1014,7 +1030,7 @@ const {
       746px 463px var(--starsColorThree), 412px 349px var(--starsColorThree),
       1193px 1421px var(--starsColorThree), 564px 455px var(--starsColorThree),
       1675px 589px var(--starsColorThree);
-    animation: animStar 150s linear infinite;
+    animation: animStar var(--starsTimeThree) linear infinite;
   }
   #stars3:after {
     content: ' ';
@@ -1089,7 +1105,7 @@ const {
   .stars-container {
     position: absolute;
     left: 0;
-    top: 10%;
+    top: 0;
   }
   .content {
     display: contents;
