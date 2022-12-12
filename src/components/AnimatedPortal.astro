@@ -5,9 +5,12 @@ export interface Props {
   starsColorThree?: string;
   overflow?: string;
   paused?: boolean;
+  showPauseBtn?: boolean;
   starsTimeOne?: string;
   starsTimeTwo?: string;
   starsTimeThree?: string;
+  fromPosition?: string;
+  toPosition?: string;
 }
 const {
   starsColor = 'white',
@@ -17,9 +20,34 @@ const {
   paused = false,
   starsTimeOne = '50s',
   starsTimeTwo = '100s',
-  starsTimeThree = '150s'
+  starsTimeThree = '150s',
+  fromPosition = 'translateY(0px)',
+  toPosition = 'translateY(-2000px)',
+  showPauseBtn = true
 } = Astro.props as Props;
 ---
+
+<script>
+  const handleButtonClick = (e) => {
+    console.log('clicked');
+    if (
+      document
+        .querySelector('.stars-container > div')
+        .classList.contains('paused')
+    ) {
+      document
+        .querySelectorAll('.stars-container > div')
+        .forEach((div) => div.classList.remove('paused'));
+    } else {
+      document
+        .querySelectorAll('.stars-container > div')
+        .forEach((div) => div.classList.add('paused'));
+    }
+  };
+  document
+    .querySelector('#pause-btn')
+    .addEventListener('click', handleButtonClick);
+</script>
 
 <div class="animation-container">
   <div class="stars-container">
@@ -30,6 +58,12 @@ const {
   <div class="content">
     <slot />
   </div>
+  { showPauseBtn &&
+    <div class="pause-switch">
+        <button id="pause-btn">Pause</button>
+    </div>
+  }
+  
 </div>
 
 <style
@@ -40,7 +74,9 @@ const {
     overflow,
     starsTimeOne,
     starsTimeTwo,
-    starsTimeThree
+    starsTimeThree,
+    fromPosition,
+    toPosition
   }}
 >
   #stars {
@@ -1113,13 +1149,30 @@ const {
   .paused {
     animation: none !important;
   }
+  .pause-switch {
+    position: absolute;
+    bottom: 1rem;
+    opacity: 10%;
+    transition: 1s;
+  }
+  .pause-switch:hover {
+    display: block;
+    opacity: 95%;
+  }
+  #pause-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 0.8rem 1rem;
+  }
 
   @keyframes animStar {
     from {
-      transform: translateY(0px);
+      transform: var(--fromPosition);
     }
     to {
-      transform: translateY(-2000px);
+      transform: var(--toPosition);
     }
   }
 </style>
