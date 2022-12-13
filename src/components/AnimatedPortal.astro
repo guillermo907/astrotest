@@ -58,12 +58,13 @@ const {
   <div class="content">
     <slot />
   </div>
-  { showPauseBtn &&
-    <div class="pause-switch">
+  {
+    showPauseBtn && (
+      <div class="pause-switch">
         <button id="pause-btn">Pause</button>
-    </div>
+      </div>
+    )
   }
-  
 </div>
 
 <style
@@ -1170,9 +1171,11 @@ const {
   @keyframes animStar {
     from {
       transform: var(--fromPosition);
+      scale: 30%;
     }
     to {
       transform: var(--toPosition);
+      scale: 200%;
     }
   }
 </style>
